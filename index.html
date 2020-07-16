@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Code Quiz Project!</title>
-
     <!-- BootStrap CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -13,25 +12,28 @@
 
     <body>
         <!-- Header -->
-        <header class="p-3" style="background-color: #17a2b8">
-            <a href="highscores.html">View High Scores</a>
-            <span id="timer" class="float-right mr-2">Timer: 0</span>
-        </header>
-        
+        <div class="container-md" id= "header">
+            <header class="p-3 bg-success">
+                <a href="highscores.html">View High Scores</a>
+                <span id="timer" class="float-right">Timer: 0</span>
+            </header>
+        </div>
         <!-- Main page -->
-        <div class="container mt-5" id="home">
-            <div class="row justify-content-center mt-5 pt-3 pb-3">
+        <div class="container-md" id="home">
+            <div class="row justify-content-center pt-5 pb-5 bg-primary">
                 <div class="col-10 col-lg-8 text-center">
-                    <h1>JavaScript (JS) Mini Quiz</h1> <br>
+                    <h1>JavaScript Code Quiz</h1> 
+                    <br>
                     <p>Try to answer the following questions about coding with JavaScript in 90 seconds. <br>
-                    <strong>NOTE:</strong> If you answer incorrectly, you'll lose some time (10 seconds to be exact)!</p> <br>
+                    <strong>NOTE:</strong> If you answer incorrectly, you'll lose some time (10 seconds to be exact)!</p> 
+                    <br>
                     <button type="button" id="startBtn" class="btn btn-info btn-lg">START</button>
                 </div>
             </div>
         </div>
         
         <!-- Q&A -->
-        <div class="container mt-5 d-none" id="quiz">
+        <div class="container-md mt-5 d-none" id="quiz">
             <div class="row justify-content-center mt-5 pt-3 pb-3">
                 <div class="col-10 col-lg-8" id="QA-block">
                     <h3 id="questions" class="mb-4">QUESTION</h3>
@@ -66,7 +68,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         
         <script src="questions.js"></script>
-        <script src="main.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
 

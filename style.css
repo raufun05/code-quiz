@@ -1,6 +1,13 @@
-html, body {
-    background-color: rgb(215, 193, 221);
+body {
+    background-color: rgb(75, 77, 59);
+    
+}
+#header{
+    border: 5px solid maroon;
+}
+#home{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 2px solid maroon;
 }
 h1, h2, a, span {
     color: whitesmoke;
