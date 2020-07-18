@@ -14,7 +14,7 @@ var answer;
 
 function startTimer() {
     // swap welcome msg w/ questions
-    document.getElementById("home").classList.add('d-none');
+    document.getElementById("main").classList.add('d-none');
     document.getElementById("quiz").classList.remove('d-none');
 
     // timer set and begins 90s countdown
@@ -113,4 +113,5 @@ answerChoices.addEventListener("click", function (event) {
     }    
     makeQuestions();
 });
+
 

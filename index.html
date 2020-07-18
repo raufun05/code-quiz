@@ -13,28 +13,28 @@
     <body>
         <!-- Header -->
         <div class="container-md" id= "header">
-            <header class="p-3 bg-success">
-                <a href="highscores.html">View High Scores</a>
+            <header>
+                <a href="highscores.html" id= score>View High Scores</a>
                 <span id="timer" class="float-right">Timer: 0</span>
             </header>
         </div>
         <!-- Main page -->
-        <div class="container-md" id="home">
+        <div class="container-md" id="main">
             <div class="row justify-content-center pt-5 pb-5 bg-primary">
                 <div class="col-10 col-lg-8 text-center">
                     <h1>JavaScript Code Quiz</h1> 
                     <br>
-                    <p>Try to answer the following questions about coding with JavaScript in 90 seconds. <br>
-                    <strong>NOTE:</strong> If you answer incorrectly, you'll lose some time (10 seconds to be exact)!</p> 
+                    <p> Try to answer the following code-related questions with in the time limit. <br>
+                    <strong>NOTE:</strong> If you answer incorrectly, you'll penalize your score time by ten seconds.</p> 
                     <br>
-                    <button type="button" id="startBtn" class="btn btn-info btn-lg">START</button>
+                    <button type="button" id="startBtn" class="btn btn-info btn-lg">Start Quiz</button>
                 </div>
             </div>
         </div>
         
         <!-- Q&A -->
-        <div class="container-md mt-5 d-none" id="quiz">
-            <div class="row justify-content-center mt-5 pt-3 pb-3">
+        <div class="container-md d-none" id="quiz">
+            <div class="row justify-content-center pt-5 pb-5 bg-primary">
                 <div class="col-10 col-lg-8" id="QA-block">
                     <h3 id="questions" class="mb-4">QUESTION</h3>
                     <ul id="answers" class="list-unstyled">
@@ -49,13 +49,13 @@
         </div>
         
         <!-- Finished Screen -->
-        <div class="container mt-5 d-none" id="submit-score">
-            <div class="row justify-content-center mt-5 pt-3 pb-3">
+        <div class="container-md d-none" id="submit-score">
+            <div class="row justify-content-center pt-5 pb-5 bg-primary">
                 <div class="col-10 col-lg-8">
                     <h2>All Done!</h2>
                     <p id="user-score"> </p>
                     <form class="form-group">
-                        <label for="new-score">Enter your name: </label>
+                        <label for="new-score" id="signature">Enter your initial: </label>
                         <input type="text" id="userName"> 
                         <button type="button" class="btn btn-info btn-sm submitBtn">Submit</button>
                     </form>
@@ -73,3 +73,4 @@
 </html>
 
 
+<!--https://www.youtube.com/watch?v=49pYIMygIcU -->

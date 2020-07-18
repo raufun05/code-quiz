@@ -3,19 +3,38 @@ body {
     
 }
 #header{
-    border: 5px solid maroon;
+    border: 3px solid maroon;
+    background-color: green;
+    padding: 5px;
 }
-#home{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+#score{
+    margin-left: 20px;
+}
+#timer{
+    margin-right: 20px;
+}
+#main{
+    font-family: Arial, Helvetica, sans-serif;
     border: 2px solid maroon;
 }
-h1, h2, a, span {
-    color: whitesmoke;
+#quiz{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid maroon;
 }
-
+#submit-score{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid maroon;
+}
+h1, h2, h3, a, span, p{
+    color:white;
+}
+#signature{
+    color:white;
+}
+}
 #score-list {
-    font-size: 1.2rem;
-    color: dimgrey;    
+    font-size:16px;
+    color: whitesmoke;    
 }
 ol {
     list-style: none;
@@ -44,4 +63,6 @@ hr {
 
 #scoresTitle {
     padding-left: 1rem;
+    padding-bottom: 20px;
+    border-bottom: 2px solid maroon;
 }
