@@ -17,7 +17,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     border: 2px solid maroon;
 }
-#quiz{
+#Q-ACode{
     font-family: Arial, Helvetica, sans-serif;
     border: 2px solid maroon;
 }
@@ -31,7 +31,7 @@ h1, h2, h3, a, span, p{
 #signature{
     color:white;
 }
-}
+
 #score-list {
     font-size:16px;
     color: whitesmoke;    

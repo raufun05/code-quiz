@@ -1,6 +1,6 @@
 var startBtn = document.getElementById("startBtn");
 var submitBtn = document.querySelector("button.submitBtn")
-var secondsLeft = (questions.length * 15 + 1);
+var secondsLeft = (quizQuestions.length * 15 + 1);
 var timerEl = document.getElementById("timer");
 var submitScoreEl = document.querySelector("#submit-score");
 var userScoreEl = document.getElementById("user-score");
@@ -15,12 +15,12 @@ var answer;
 function startTimer() {
     // swap welcome msg w/ questions
     document.getElementById("main").classList.add('d-none');
-    document.getElementById("quiz").classList.remove('d-none');
+    document.getElementById("Q-ACode").classList.remove('d-none');
 
     // timer set and begins 90s countdown
     setTimer();
     // create questions to display
-    makeQuestions();
+    generateQuizQuestions();
 }
 
 function setTimer() {
@@ -29,44 +29,44 @@ function setTimer() {
         secondsLeft--;
         timerEl.textContent = "Time: " + secondsLeft;
 
-        if (secondsLeft === 0 || questionNumber === questions.length) {
+        if (secondsLeft === 0 || questionNumber === quizQuestions.length) {
             clearInterval(countdown);
             setTimeout(displayScore, 500);
         }
     }, 1000);
 }
 
-function makeQuestions() {
+function generateQuizQuestions() {
     questionNumber++;
-    answer = questions[questionNumber].answer
+    answer = quizQuestions[questionNumber].answer
 
-    questionHead.textContent = questions[questionNumber].title;
+    questionHead.textContent = quizQuestions[questionNumber].title;
     answerChoices.innerHTML = "";
 
-    var choices = questions[questionNumber].choices;
+    var choices = quizQuestions[questionNumber].choices;
 
-    for (var q = 0; q < choices.length; q++) {
+    for (var i = 0; i < choices.length; i++) {
         var nextChoice = document.createElement("button");
 
-        nextChoice.textContent = choices[q]
+        nextChoice.textContent = choices[i]
         answerBtn = answerChoices.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
     }
 }
 
-// display option to enter name to scoreboard
+// Enter initial to see the scoreboard screen
 function displayScore() {
-    document.getElementById("quiz").classList.add('d-none');
+    document.getElementById("Q-ACode").classList.add('d-none');
     document.getElementById("submit-score").classList.remove('d-none');
     userScoreEl.textContent = "Your final score is " + secondsLeft + ".";
 }
 
-// Event Listeners for Main Buttons
+// Add event listener method for start button
 startBtn.addEventListener("click", startTimer);
 submitBtn.addEventListener("click", function (event) {
     event.stopPropagation();
     addScore();
     
-    window.location.href = './highscores.html'
+    window.location.href = './viewscores.html'
 });
 
 function addScore () {
@@ -102,16 +102,14 @@ answerChoices.addEventListener("click", function (event) {
     
     // evaluation of user's answer choices & feedback
     if (answer === event.target.textContent) {   
-        pEl.innerHTML = "Correct!";
+        pEl.innerHTML = "Correct answer!";
         setTimeout(hideFeedback,1000);
         showFeedback();   
     } else {
-        pEl.innerHTML = "Sorry, that's incorrect.";
+        pEl.innerHTML = "Sorry, that's wrong answer.";
         setTimeout(hideFeedback,1000);
         secondsLeft = secondsLeft - 10;
         showFeedback();
     }    
-    makeQuestions();
+    generateQuizQuestions();
 });
-
-

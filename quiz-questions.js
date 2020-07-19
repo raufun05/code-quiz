@@ -1,13 +1,13 @@
-var questions = [
-    {
-        question: "What is the correct HTML for referring to an external style sheet?",
-        choices: ["<link rel='stylesheet' type='text/css' href='mystyle.css'>", "<stylesheet>mystyle.css</stylesheet>", "<style src='mystyle.css'>", "<link alt='stylesheet' type='text/css' href='mystyle.css'>"],
-        answer: "<link rel='stylesheet' type='text/css' href='mystyle.css'>"
-    },
+var quizQuestions = [
     {
         title: "What is the correct syntax for referring to an external script called 'xxx.js'?",
         choices: ["<script rel='xxx.js'>", "<script href='xxx.js'>", "<script link='xxx.js'>", "<script src='xxx.js'>"],
         answer: "<script src='xxx.js'>"
+    },
+    {
+        title: "What is the correct HTML for referring to an external style sheet?",
+        choices: ["<link rel='stylesheet' type='text/css' href='mystyle.css'>", "<stylesheet>mystyle.css</stylesheet>", "<style src='mystyle.css'>", "<link alt='stylesheet' type='text/css' href='mystyle.css'>"],
+        answer: "<link rel='stylesheet' type='text/css' href='mystyle.css'>"
     },
     {
         title: "How does a FOR loop start?",
