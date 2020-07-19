@@ -1,21 +1,23 @@
-var startBtn = document.getElementById("startBtn");
-var submitBtn = document.querySelector("button.submitBtn")
-var secondsLeft = (quizQuestions.length * 15 + 1);
+// Update/ Manipulate inner HTML of our elements
+//<!--https: www.youtube.com/watch?v=49pYIMygIcU -->
+
+var startQuizBtn = document.getElementById("startBtn");
+var submitQuizBtn = document.querySelector("button.submitBtn")
+var timeLeft = (quizQuestions.length * 15 + 1);
 var timerEl = document.getElementById("timer");
 var submitScoreEl = document.querySelector("#submit-score");
 var userScoreEl = document.getElementById("user-score");
-var userNameInput;
 var questionHead = document.getElementById("questions");
-var answerChoices = document.getElementById("answers");
+var correctOptions = document.getElementById("answers");
 
 var questionNumber = -1;
-var answer;
+var correct;
 
 
 function startTimer() {
     // swap welcome msg w/ questions
     document.getElementById("main").classList.add('d-none');
-    document.getElementById("Q-ACode").classList.remove('d-none');
+    document.getElementById("quiz-container").classList.remove('d-none');
 
     // timer set and begins 90s countdown
     setTimer();
@@ -26,10 +28,10 @@ function startTimer() {
 function setTimer() {
 
     var countdown = setInterval(function () {
-        secondsLeft--;
-        timerEl.textContent = "Time: " + secondsLeft;
+        timeLeft--;
+        timerEl.textContent = "Time: " + timeLeft;
 
-        if (secondsLeft === 0 || questionNumber === quizQuestions.length) {
+        if (timeLeft === 0 || questionNumber === quizQuestions.length) {
             clearInterval(countdown);
             setTimeout(displayScore, 500);
         }
@@ -38,31 +40,31 @@ function setTimer() {
 
 function generateQuizQuestions() {
     questionNumber++;
-    answer = quizQuestions[questionNumber].answer
+    correctAnswer = quizQuestions[questionNumber].correctAnswer
 
-    questionHead.textContent = quizQuestions[questionNumber].title;
-    answerChoices.innerHTML = "";
+    questionHead.textContent = quizQuestions[questionNumber].question;
+    correctOptions.innerHTML = "";
 
-    var choices = quizQuestions[questionNumber].choices;
+    var options = quizQuestions[questionNumber].options;
 
-    for (var i = 0; i < choices.length; i++) {
-        var nextChoice = document.createElement("button");
+    for (var i = 0; i < options.length; i++) {
+        var nextOption = document.createElement("button");
 
-        nextChoice.textContent = choices[i]
-        answerBtn = answerChoices.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
+        nextOption.textContent = options[i]
+        answerBtn = correctOptions.appendChild(nextOption).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
     }
 }
 
 // Enter initial to see the scoreboard screen
 function displayScore() {
-    document.getElementById("Q-ACode").classList.add('d-none');
+    document.getElementById("quiz-container").classList.add('d-none');
     document.getElementById("submit-score").classList.remove('d-none');
-    userScoreEl.textContent = "Your final score is " + secondsLeft + ".";
+    userScoreEl.textContent = "Your final score is " + timeLeft + ".";
 }
 
 // Add event listener method for start button
-startBtn.addEventListener("click", startTimer);
-submitBtn.addEventListener("click", function (event) {
+startQuizBtn.addEventListener("click", startTimer);
+submitQuizBtn.addEventListener("click", function (event) {
     event.stopPropagation();
     addScore();
     
@@ -75,7 +77,7 @@ function addScore () {
     // create a new object with name and score keys
 var newScore = {
         name: userNameInput,
-        score: secondsLeft
+        score: timeLeft
     };
     // check if there are scores in local storage first(get it)
     //if not, make a new/blank array
@@ -97,18 +99,18 @@ function showFeedback(){
     pEl.removeAttribute('style');
 }
 
-answerChoices.addEventListener("click", function (event) {
+correctOptions.addEventListener("click", function (event) {
     var pEl= document.getElementsByClassName("feedback")[0]
     
     // evaluation of user's answer choices & feedback
-    if (answer === event.target.textContent) {   
+    if (correctAnswer === event.target.textContent) {   
         pEl.innerHTML = "Correct answer!";
         setTimeout(hideFeedback,1000);
         showFeedback();   
     } else {
-        pEl.innerHTML = "Sorry, that's wrong answer.";
+        pEl.innerHTML = "Sorry, wrong answer!!";
         setTimeout(hideFeedback,1000);
-        secondsLeft = secondsLeft - 10;
+        timeLeft = timeLeft - 10;
         showFeedback();
     }    
     generateQuizQuestions();

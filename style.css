@@ -7,7 +7,7 @@ body {
     background-color: green;
     padding: 5px;
 }
-#score{
+#score {
     margin-left: 20px;
 }
 #timer{
@@ -17,7 +17,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     border: 2px solid maroon;
 }
-#Q-ACode{
+#quiz-container{
     font-family: Arial, Helvetica, sans-serif;
     border: 2px solid maroon;
 }

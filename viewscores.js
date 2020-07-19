@@ -1,23 +1,24 @@
+// Identify inner HTML elements 
 var restartBtn = document.querySelector("button.restartBtn"),
     clearBtn = document.querySelector("button.clearBtn"),
     // get the highScores list and turn it back into an object
     highScores = JSON.parse(localStorage.getItem("highScores") || "[]"),
     scoreList = document.getElementById("score-list");
 
-    // sort scores from high to low
+    // Scores display with descending order
     highScores.sort(function (a,b){
         return b.score - a.score
     })
 
     // display the scores
-    for (var s = 0; s < highScores.length; s++) {
-        var newLi = document.createElement("li")
-        newLi.textContent = highScores[s].name + " - " + highScores[s].score
-        scoreList.appendChild(newLi)
+    for (var j = 0; j < highScores.length; j++) {
+        var newList = document.createElement("li")
+        newList.textContent = highScores[j].name + " - " + highScores[j].score
+        scoreList.appendChild(newList)
     }
 
 
-// click handlers for restart and clearing scoreboard
+// click buttons for start again and delete history
 clearBtn.addEventListener("click", function () {
     localStorage.clear();
     history.back()
