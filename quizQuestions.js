@@ -1,5 +1,5 @@
 // Object for Quiz questions 
-//<!--https: www.youtube.com/watch?v=49pYIMygIcU -->
+//https: www.youtube.com/watch?v=49pYIMygIcU
 var quizQuestions = [
     {
         question: " Q 1: What is the correct syntax for referring to an external script called 'xxx.js'?",
