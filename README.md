@@ -32,7 +32,7 @@ The following animation demonstrates the application functionality:
 
 The following images demonstrates the deployed application functionality:
 
-![code quiz pic](./Assets/code quiz.png)
+![code quiz picture](./Assets/code-quiz.png)
 ![code quiz pic](./Assets/codequiz1.png)
 
 ### Review
